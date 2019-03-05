@@ -1,0 +1,298 @@
+body {
+  background: $body-bg; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, $body-bg, darken($body-bg, 10%));
+  background: -moz-linear-gradient(right, $body-bg, darken($body-bg, 10%));
+  background: -o-linear-gradient(right, $body-bg, darken($body-bg, 10%));
+  background: linear-gradient(to left, $body-bg, darken($body-bg, 10%));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  a{
+    color: lighten($main-color, 5%);
+    &:hover, &:active{
+      color: $main-color;
+    }
+  }
+}
+body.main-bg {
+  background: $main-color;
+  background: -webkit-linear-gradient(right, $main-color, darken($main-color, 10%));
+  background: -moz-linear-gradient(right, $main-color, darken($main-color, 10%));
+  background: -o-linear-gradient(right, $main-color, darken($main-color, 10%));
+  background: linear-gradient(to right, $main-color, darken($main-color, 10%));
+  color: $main-highlight-color;
+}
+a {
+  >i {
+    margin-right: 5px;
+    &:last-child{
+      margin: 0px;
+    }
+  }
+}
+
+//Brand-Logo - landing page
+.brand-logo-big{
+  text-align: center;
+  margin: 25px 0px;
+  > img{
+    position: relative;
+    top: 200px;
+    width: 240px;
+    transform: translateY(-200px);
+  }
+}
+
+//Container-boxed
+.container-boxed {
+  position: relative;
+  padding: 20px 30px;
+  background-color: white;
+  color: $main-color;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  p{
+    color: black;
+  }
+  &.toggle{
+    height: 0px;
+    opacity: 0;
+    transform: translateX(-100%);
+    overflow: hidden;
+    transition: transform 0.7s, opacity 1s;
+    &:not(.active){
+      padding: 0px;
+    }
+    &.active{
+      transform: translateX(0);
+      opacity: 1;
+      height: auto;
+    }
+  }
+}
+ul.posts-list{
+  padding-left:0px;
+  list-style: none;
+}
+.post-container{
+  position: relative;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+  .post-head{
+    position: relative;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 10px 15px;
+    .user-img{
+      display: block;
+      float: left;
+    }
+    .users-name{
+      display: inline-block;
+      font-size: 16px;
+      i{
+        margin-left: 5px;
+      }
+    }
+    .online-dot{
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: $brand-success;
+      border-radius: 50%;
+    }
+    .nav-pills{
+      > li > a {
+        color: $main-color;
+        font-size: 16px;
+        padding: 10px;
+        border: none;
+        &:hover, &:active, &:focus{
+          background-color: $main-highlight-color;
+        }
+      }
+    }
+  }
+  .post-body {
+    padding: 10px 15px;
+    color: black;
+  }
+  .post-photo {
+    width: 100%;
+    text-align: center;
+    img{
+      max-width: 90%;
+    }
+  }
+  .post-footer{
+    padding: 10px 15px 0px 15px;
+    border-top: 1px solid lighten(grey, 40%);
+    .footer-btns{
+      display: flex;
+      padding-left:0px;
+      margin-left: -15px;
+      margin-right: -15px;
+      list-style: none;
+      > li {
+        border: 1px solid lighten(grey, 40%);
+        color: $main-color;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        flex: 1 1 0;
+        // &:first-child{
+        //   border-top-left-radius: 4px;
+        //   border-bottom-left-radius: 4px;
+        // }
+        // &:last-child{
+        //   border-top-right-radius: 4px;
+        //   border-bottom-right-radius: 4px;
+        // }
+        > a, button {
+          display: block;
+          border: none;
+          background-color: white;
+          width: 100%;
+          padding: 5px 10px;
+          text-decoration: none;
+          &:hover, &:focus, &:active {
+            background-color: $main-highlight-color;
+          }
+          i{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//User Images
+.user-img{
+  display: inline-block;
+  height: 40px;
+  >img{
+    border-radius: 50%;
+    height: 100%;
+    margin-right: 5px;
+  }
+}
+.post-form{
+  padding: 10px 10px 0px 10px;
+  margin-bottom: 30px;
+  .form-content{
+    display: flex;
+    img.user-img{
+      height: 40px;
+      margin-right: 10px;
+      vertical-align: top;
+      border-radius: 20px;
+    }
+    .form-input{
+      width: 100%;
+    }
+    #post-content{
+      background-color: transparent;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      resize: none;
+      box-shadow: none;
+      transition: all 0.5s;
+      &:focus{
+        height: 80px;
+      }
+    }
+    .photo-preview {
+      display: none;
+      margin-top: 5px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: whitesmoke;
+      border: 1px solid #ccc;
+      padding: 3px;
+      max-height: 200px;
+      overflow-y: auto;
+      &.has-image {
+        display: block;
+      }
+      > img {
+        display: inline-block;
+        width: 20%;
+        padding: 5px;
+        max-height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    }
+    .form-buttons {
+      padding-top: 5px;
+      > * {
+        float: right;
+        height: 36px;
+        margin-right: 5px;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 9px 10px;
+        &:not(.btn) {
+          border: none;
+          background-color: transparent;
+          color: $main-color;
+          border-radius: 4px;
+          &:hover, &:focus {
+            background-color: rgba(0, 0, 0, 0.15);
+          }
+        }
+        > span {
+          margin-right: 5px;
+        }
+        &:first-child{
+          margin-right: 0px;
+        }
+      }
+      input#post-photo {
+        display: none;
+        + label[for=post-photo] {
+          text-align: center;
+          cursor: pointer;
+          font-style: normal;
+        }
+      }
+    }
+  }
+}
+//Comments Box
+.comment-box{
+  padding: 10px;
+  .comment-form{
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    > * {
+      margin-right: 5px;
+      &:last-child{
+        margin-right: 0px;
+      }
+    }
+  }
+  > ul.comments-list{
+    list-style: none;
+    padding-left: 0;
+    > .comment {
+      padding: 5px 0px;
+      border-bottom: 1px solid #eee;
+      &.user {
+        background-color: #f6f6f6;
+        color: #111;
+      }
+    }
+    .comment-body {
+      padding-left: 50px;
+    }
+  }
+}
+//Footer
+.footer{
+  margin-top: 15px;
+  padding: 5px;
+}

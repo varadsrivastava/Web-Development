@@ -1,0 +1,67 @@
+@import "animation";
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: $red-btn-color;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+
+    :hover,
+    :focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+}
+.modal-header {
+    padding: 2px 16px;
+    background-color: #fff;
+    color: #888;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  hr
+  {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: white;
+    border-color: white;
+  }
+}
+
+.dropdown .btn {
+  width: 100%;
+ .dropdown-menu {
+  width: 100%;
+}
+}

@@ -1,0 +1,110 @@
+$dcolor: #05053a;
+
+#sidemenu {
+  padding: 10px;
+  height: 80vh;
+  background-color: $dcolor;
+  color: white;
+  #sidehead {
+    height: 8vh;
+    width: 100%;
+    margin-bottom: 10px;
+    img {
+      border-radius: 50%;
+    }
+    #myname {
+      display: inline-block;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    }
+    input[type="text"] {
+      width: 100%;
+      background-color: $dcolor;
+      border: 0;
+      border-bottom: 0.5px white solid;
+      font-family: "Roboto", sans-serif;
+    }
+    input[type="text"]:focus {
+      outline: none;
+    }
+  }
+#sidebody{
+  height: 69vh;
+  .fhead{
+    margin-top: 10px;
+  }
+  img{
+    border-radius: 50%;
+  }
+  #friendname{
+  margin-left: 5px;
+  }
+  .fstatus{
+    font-style: italic;
+    margin-left: 10px;
+  }
+  overflow: hidden;
+
+
+}
+  #sidebody:hover{
+    overflow-y: scroll;
+  }
+}
+
+#wwind { //welcome window
+  display: none;
+ // border: 1px solid green;
+  height: 80vh;
+  #empty {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    margin-top: 25%;
+  }
+
+}
+
+#mwind { //main window
+  padding: 0;
+
+ // border: 1px solid green;
+  max-height: 80vh;
+
+
+  #mhead {
+    height: 6vh;
+    background-color: white;
+ //   display: flex;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-right: 10px;
+
+    img{
+
+      vertical-align: middle;
+      border-radius: 50%;
+
+    }
+    p{
+      display: inline-block;
+      margin-left: 5px;
+
+    }
+
+
+  }
+  #mbody{
+    height: 69.5vh;
+    width: 100%;
+    background-color: $body-bg;
+    overflow: hidden;
+
+      }
+  #mfoot{
+    height: 4vh;
+    background-color: white;
+  }
+#mbody:hover{
+  overflow-y: scroll;
+}
+
+}

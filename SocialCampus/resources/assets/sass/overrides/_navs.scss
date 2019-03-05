@@ -1,0 +1,31 @@
+.nav-pills, .nav-tabs {
+  > li {
+    >a{
+      color: $main-color;
+      border: 1px solid $main-color;
+      &:hover, &:focus, &:active{
+        background-color: $main-highlight-color;
+        border-color: darken($main-highlight-color, 5%);
+      }
+    }
+    &.active{
+      >a{
+        &, &:hover, &:active, &:focus{
+          background-color: $main-color;
+          color: $main-highlight-color;
+        }
+      }
+    }
+  }
+}
+.tab-content > .tab-pane {
+    display: block;
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
+    transition: opacity 0.8s;
+    &.active{
+      height: 100%;
+      opacity: 1;
+    }
+}

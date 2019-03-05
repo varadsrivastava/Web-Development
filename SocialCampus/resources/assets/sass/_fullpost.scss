@@ -1,0 +1,79 @@
+.page_container {
+  background: darken($body-bg,20%);
+}
+.title_details {
+  position: relative;
+}
+.post_container {
+  background: white;
+  margin: 15px;
+}
+.post {
+  padding: 10px;
+}
+.user_profile {
+  width: 60px;
+  height: 30px;
+}
+.user_profile img {
+  width: 100%;
+  height: 100%;
+}
+.caption {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.likebox
+{
+  width: 100%;
+  height: 30px;
+  background: $light-grey;
+  margin: 10px 0 0;
+  .like_container {
+    width: 100%;
+    height: 30px;
+  }
+
+  .glyphicon{
+    font-size: x-large;
+    padding-top: 4px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 4px;
+  }
+  .well
+  {
+    padding: 5px;
+    margin: 0px;
+  }
+}
+.like
+{
+  display: block;
+  padding: 0px;
+  height: 3px;
+  width: 20%;
+}
+.glyphicon-user
+{
+  font-size: initial;
+}
+.share
+{
+  position: relative;
+  height: 20%;
+  width: 30px;
+}
+.flex1 .btn
+{
+  color: black;
+  background: white;
+  border-color: white;
+  padding: 4px;
+}
+.flex1 {
+  display: flex;
+}
+.flex2 {
+  flex: 1;
+}
