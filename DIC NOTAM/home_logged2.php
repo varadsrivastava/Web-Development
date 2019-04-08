@@ -35,15 +35,13 @@ include('session2.php');
     <a class="nav-link active" href="javascript:void(0)">Home</a>
   </li>
   <li class="navbar-nav">
-    <a class="nav-link" href="notam_manage.php">NOTAM</a>
+    <a class="nav-link" href="notam_recieve.php">NOTAM Reciever</a>
   </li>
-  <li class="navbar-nav">
-    <a class="nav-link" href="notam_history.php">History</a>
-  </li>
+
 </ul>
   <ul class="nav navbar-nav ml-auto">
       <li><a class="nav-link" href="logout.php"><i class="fas fa-sign-in-alt"></i> SignOut</a></li>
-      <li><a class="nav-link" href="profile.php"><i class="fas fa-user-circle"></i> <?php echo $user_check; ?> </a></li>
+      <li><a class="nav-link" href="profile2.php"><i class="fas fa-user-circle"></i> <?php echo $user_check; ?> </a></li>
     </ul>
     </nav>
 

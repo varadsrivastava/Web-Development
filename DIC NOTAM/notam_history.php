@@ -1,5 +1,5 @@
 <?php
-include('session2.php');
+include('session.php');
 ?>
 
 
@@ -20,17 +20,6 @@ include('session2.php');
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-    <script type="text/javascript">
-    $(document).ready(function () {
-        $('#pickyDate').datepicker({
-            format: "yyyy-mm-dd"
-        });
-    });
-</script>
-
     <link rel="stylesheet" href="css/login.css" media="screen" />
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -44,17 +33,19 @@ include('session2.php');
   </a>
   <ul class="navbar-nav">
   <li class="nav-item">
-    <a class="nav-link" href="home_logged2.php">Home</a>
+    <a class="nav-link" href="home_logged.php">Home</a>
   </li>
   <li class="navbar-nav">
-    <a class="nav-link active" href="javascript:void(0)">NOTAM Reciever</a>
+    <a class="nav-link" href="notam_manage.php">NOTAM</a>
   </li>
-
+  <li class="navbar-nav">
+    <a class="nav-link active" href="javascript:void(0)">History</a>
+  </li>
 </ul>
   <ul class="nav navbar-nav ml-auto">
 
       <li><a class="nav-link" href="logout.php"><i class="fas fa-sign-in-alt"></i> SignOut</a></li>
-      <li><a class="nav-link" href="profile2.php"><i class="fas fa-user-circle"></i> <?php echo $user_check; ?></a></li>
+      <li><a class="nav-link" href="profile.php"><i class="fas fa-user-circle"></i> <?php echo $user_check; ?></a></li>
     </ul>
     </nav>
 
@@ -62,16 +53,6 @@ include('session2.php');
       <h1>Welcome to NOTAM.</h1>
     </div>
 
-    <div class="card">
-      <div class="card-header bg-primary" >NOTAM Search</div>
-      <form method="POST">
-        <label for="datey">Date Recieved</label>
-        <input type='text' id="pickyDate" name="datey"/>
-        <label for="loca">Location</label>
-        <input type='text' id="loca" name="loca"/>
-        <button type="submit" class="btn btn-info" name="show">Submit and Search</button>
-      </form>
-  </div>
 
 
   <div class="card">
@@ -107,12 +88,9 @@ include('session2.php');
             <tbody>
 
             <?php
+            
 
-            if(isset($_POST["show"]))
-            {
-            $datey = $_POST['datey'];
-            $loca = $_POST['loca'];
-            $result = mysqli_query($connection, "SELECT * FROM archive WHERE date = '$datey' AND loc = '$loca' ");
+            $result = mysqli_query($connection, "SELECT * FROM archive");
             if ($result->num_rows > 0) {
                 // output data of each row
                 while($row = $result->fetch_assoc())
@@ -147,8 +125,7 @@ include('session2.php');
             {
                 echo "0 results";
             }
-          }
-          ?>
+            ?>
              </tbody>
           </div>
       </table>
@@ -156,15 +133,6 @@ include('session2.php');
 
   </div>
 
-  <div class="container">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</div>
 
 
 <!--airmen login-->

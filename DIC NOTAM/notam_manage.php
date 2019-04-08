@@ -26,7 +26,7 @@ include('session.php');
     <script type="text/javascript">
     $(document).ready(function () {
         $('#pickyDate').datepicker({
-            format: "dd/mm/yyyy"
+            format: "yyyy-mm-dd"
         });
     });
 </script>
@@ -87,14 +87,15 @@ include('session.php');
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                  <form action="/action_page.php">
+                  <form action="", method="post", name="">
+
                       <div class='row'>
                         <div class='col'>
-                      <label for="no">NOTAM Number</label>
-                      <input type="text" id="no" name="no">
-                        </div>
-                       <div class='col'>
-                         <label for="notam_type_drop">Type</label>
+                          <label for="notam_no">NOTAM Number</label>
+                          <input type="text" id="notam_no" name="notam_no">
+                          </div>
+                        <div class='col'>
+                         <label for="notam_type">Type</label>
                          <?php
 
                           //Connect to our MySQL database using the PDO extension.
@@ -114,7 +115,7 @@ include('session.php');
 
                           ?>
 
-                          <select>
+                          <select name="notam_type">
                               <?php foreach($users as $user): ?>
                                   <option value="<?= $user['id']; ?>"><?= $user['type']; ?></option>
                               <?php endforeach; ?>
@@ -122,8 +123,8 @@ include('session.php');
 
                        </div>
                        <div class='col'>
-                         <label for="cancelno">Cancel No</label>
-                         <input type="text" id="cancelno" name="cancelno">
+                         <label for="cancel_no">Cancel No</label>
+                         <input type="text" id="cancel_no" name="cancel_no">
                        </div>
                        <div class='col'>
                          <label for="aftn">AFTN Origin</label>
@@ -211,29 +212,70 @@ include('session.php');
 
                  <div>
                    <h4>E)</h4>
-                   <label for="fname">Text</label>
-                   <input type="text" id="fname" name="firstname">
+                   <label for="text">Text</label>
+                   <input type="text" id="text" name="text">
                 </div>
 
 
 
+              <button type="submit" class="btn btn-secondary" name="add_button"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send</button>
               </form>
             </div>
+
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
                   <div class="row">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-paper-plane" aria-hidden="true"></i>  Send</button>
 
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
                 </div>
+
+
 
               </div>
             </div>
             </div>
           </div>
       </div>
+
+
+      <?php
+
+
+          if(isset($_POST["add_button"]))
+          {
+          $notam_no = $_POST['notam_no'];
+          $notam_type = $_POST['notam_type'];
+          $cancel_no = $_POST['cancel_no'];
+          $aftn = $_POST['aftn'];
+          $date = $_POST['date'];
+          $fir = $_POST['fir'];
+          $qcode = $_POST['qcode'];
+          $traffic = $_POST['traffic'];
+          $purpose = $_POST['purpose'];
+          $scope = $_POST['scope'];
+          $lower = $_POST['lower'];
+          $upper = $_POST['upper'];
+          $lat = $_POST['lat'];
+          $loc = $_POST['loc'];
+          $validf = $_POST['validf'];
+          $validt = $_POST['validt'];
+          $schedule = $_POST['schedule'];
+          $text = $_POST['text'];
+
+          $archive_add = "insert into archive
+                  (notam_no,notam_type,cancel_no,aftn,date,fir,qcode,traffic,purpose,scope,lower,upper,lat,loc,validf,validt,schedule,text) values
+                  ('$notam_no','$notam_type','$cancel_no','$aftn','$date','$fir','$qcode','$traffic','$purpose','$scope','$lower','$upper',
+                  '$lat','$loc','$validf','$validt','$schedule','$text')";
+          mysqli_query($connection,$archive_add)
+          or die(mysqli_error($connection));
+          $status = "New Record Inserted Successfully.";
+        }
+
+
+       ?>
 
 
 
@@ -283,7 +325,7 @@ include('session.php');
                       <p><input type="text" name="type" placeholder="NOTAM type" required /></p>
                       <p><input name="submit" type="submit" value="Submit" /></p>
                     </form>
-              </div>
+
 
               <h2> Remove NOTAM type </h2>
 
@@ -301,7 +343,7 @@ include('session.php');
                       <p><input type="text" name="type2" placeholder="NOTAM type" required /></p>
                       <p><input name="submit" type="submit" value="Delete" /></p>
                   </form>
-
+                </div>  
 
 
 
@@ -322,54 +364,6 @@ include('session.php');
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--airmen login-->
-     <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-       <div class="modal-dialog" role="document">
-         <div class="modal-content">
-           <div class="modal-header text-center">
-             <i class="fas fa-plane"></i>
-             <h4 class="modal-title w-100 font-weight-bold">AIRMAN LOGIN</h4>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-             </button>
-           </div>
-           <div class="modal-body mx-3">
-             <div class="md-form mb-5">
-               <i class="fas fa-envelope prefix grey-text"></i>
-               <input type="text" id="airmen-username" class="form-control validate" placeholder="Username">
-             </div>
-
-             <div class="md-form mb-4">
-               <i class="fas fa-lock prefix grey-text"></i>
-               <input type="password" id="airmen-pass" class="form-control validate" placeholder="Password">
-             </div>
-
-           </div>
-           <div class="modal-footer d-flex justify-content-center">
-             <button class="btn btn-default">Login</button>
-           </div>
-         </div>
-       </div>
-     </div>
-
 
 
   </body>

@@ -40,12 +40,7 @@ header("location: home_logged.php");
   <li class="nav-item">
     <a class="nav-link active" href="javascript:void(0)">Home</a>
   </li>
-  <li class="navbar-nav">
-    <a class="nav-link" href="javascript:void(0)">NOTAM</a>
-  </li>
-  <li class="navbar-nav">
-    <a class="nav-link" href="javascript:void(0)">History</a>
-  </li>
+
 </ul>
   <ul class="nav navbar-nav ml-auto">
       <li><a class="nav-link " href="javascript:void(0)" data-toggle="modal" data-target="#modalLoginForm"><i class="fas fa-plane"></i> AIRMAN </a></li>
